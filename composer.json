@@ -1,0 +1,32 @@
+{
+	"name": "forumhulp/prune_logs",
+	"type": "phpbb-extension",
+	"description": "An extension deleting log's after a configurable timespan by cron",
+	"homepage": "http://forumhulp.com",
+	"version": "3.1.0",
+	"keywords": ["forumhulp", "phpbb", "extension", "pm", "pb"],
+	"license": "GPL-2.0",
+	"authors": [
+		{
+			"name": "John Peskens",
+			"username": "John P",
+			"email": "info@forumhulp.com",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php": ">=5.3.3",
+		"phpbb/phpbb": "3.1.*@dev"
+	},
+	"extra": {
+		"display-name": "Prune Logs",
+		"soft-require": {
+           "phpbb/phpbb": "3.1.*@dev"
+        },
+		"version-check": {
+			"host": "forumhulp.com",
+			"directory": "/ext",
+			"filename": "index.php?id=25"
+		}
+	}
+}
