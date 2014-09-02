@@ -7,7 +7,7 @@
 *
 */
 
-namespace forumhulp\prune_logs;
+namespace forumhulp\prunelogs;
 
 class ext extends \phpbb\extension\base
 {

@@ -1,5 +1,5 @@
 {
-	"name": "forumhulp/prune_logs",
+	"name": "forumhulp/prunelogs",
 	"type": "phpbb-extension",
 	"description": "An extension deleting log's after a configurable timespan by cron",
 	"homepage": "http://forumhulp.com",

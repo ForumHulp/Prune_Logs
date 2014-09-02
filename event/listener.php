@@ -7,7 +7,7 @@
 *
 */
 
-namespace forumhulp\prune_logs\event;
+namespace forumhulp\prunelogs\event;
 
 /**
 * @ignore
@@ -19,33 +19,32 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 */
 class listener implements EventSubscriberInterface
 {
-    /* @var \phpbb\controller\helper */
-    protected $helper;
-  
-    /**
-    * Constructor
-    *
-    * @param \phpbb\controller\helper    $helper        Controller helper object
-    */
-    public function __construct(\phpbb\controller\helper $helper)
-    {
-        $this->helper = $helper;
-    }
+	/* @var \phpbb\controller\helper */
+	protected $helper;
 
-    static public function getSubscribedEvents()
-    {
-        return array(
-            'core.acp_board_config_edit_add'	=> 'load_config_on_setup',
-			'core.user_setup'					=> 'load_language_on_setup'
+	/**
+	* Constructor
+	*
+	* @param \phpbb\controller\helper    $helper        Controller helper object
+	*/
+	public function __construct(\phpbb\controller\helper $helper)
+	{
+		$this->helper = $helper;
+	}
+
+	static public function getSubscribedEvents()
+	{
+		return array(
+			'core.acp_board_config_edit_add'	=> 'load_config_on_setup',
 		);
-    }
+	}
 
-    public function load_config_on_setup($event)
-    {
+	public function load_config_on_setup($event)
+	{
 		if ($event['mode'] == 'features')
 		{
 			$display_vars = $event['display_vars'];
-			
+
 			$add_config_var['prune_logs_days'] = 
 				array(
 					'lang' 		=> 'PRUNE_LOGS_DAYS',
@@ -54,18 +53,8 @@ class listener implements EventSubscriberInterface
 					'explain'	=> true
 				);
 
-			$display_vars['vars'] = insert_config_array($display_vars['vars'], $add_config_var, array('after' =>'allow_quick_reply'));
+			$display_vars['vars'] = phpbb_insert_config_array($display_vars['vars'], $add_config_var, array('after' =>'allow_quick_reply'));
 			$event['display_vars'] = array('title' => $display_vars['title'], 'vars' => $display_vars['vars']);
 		}
-    }
-	
-	public function load_language_on_setup($event)
-	{
-		$lang_set_ext = $event['lang_set_ext'];
-		$lang_set_ext[] = array(
-			'ext_name' => 'forumhulp/prune_logs',
-			'lang_set' => 'prune_logs_common',
-		);
-		$event['lang_set_ext'] = $lang_set_ext;
 	}
 }

@@ -7,9 +7,9 @@
 *
 */
 
-namespace forumhulp\prune_logs\migrations;
+namespace forumhulp\prunelogs\migrations;
 
-class install_prune_logs extends \phpbb\db\migration\migration
+class install_prunelogs extends \phpbb\db\migration\migration
 {
 	public function effectively_installed()
 	{

@@ -1,6 +1,6 @@
 services:
-    cron.task.core.prune_logs:
-        class: forumhulp\prune_logs\cron\task\core\prune_logs
+    cron.task.core.prunelogs:
+        class: forumhulp\prunelogs\cron\task\core\prunelogs
         arguments:
             - @config
             - @dbal.conn
@@ -9,8 +9,8 @@ services:
             - [set_name, [cron.task.core.prune_logs]]
         tags:
             - { name: cron.task }
-    forumhulp.prune_logs.listener:
-        class: forumhulp\prune_logs\event\listener
+    forumhulp.prunelogs.listener:
+        class: forumhulp\prunelogs\event\listener
         arguments:
             - @controller.helper
         tags:
