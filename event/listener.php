@@ -45,7 +45,7 @@ class listener implements EventSubscriberInterface
 		{
 			$display_vars = $event['display_vars'];
 
-			$add_config_var['prune_logs_days'] = 
+			$add_config_var['prune_logs_days'] =
 				array(
 					'lang' 		=> 'PRUNE_LOGS_DAYS',
 					'validate'	=> 'int',
