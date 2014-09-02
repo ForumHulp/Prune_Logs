@@ -11,4 +11,5 @@ namespace forumhulp\prunelogs;
 
 class ext extends \phpbb\extension\base
 {
+
 }
