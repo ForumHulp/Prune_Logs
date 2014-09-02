@@ -9,14 +9,6 @@
 
 namespace forumhulp\prunelogs\cron\task\core;
 
-/**
-* @ignore
-*/
-if (!defined('IN_PHPBB'))
-{
-	exit;
-}
-
 class prunelogs extends \phpbb\cron\task\base
 {
 	protected $config;
