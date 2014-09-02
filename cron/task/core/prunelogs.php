@@ -21,7 +21,7 @@ class prunelogs extends \phpbb\cron\task\base
 {
 	protected $config;
 	protected $db;
-    protected $log;
+	protected $log;
 
 	/**
 	* Constructor.
@@ -33,7 +33,7 @@ class prunelogs extends \phpbb\cron\task\base
 	{
 		$this->config = $config;
 		$this->db = $db;
-        $this->log = $log;
+		$this->log = $log;
 	}
 
 	/**
@@ -45,7 +45,7 @@ class prunelogs extends \phpbb\cron\task\base
 	{
 		global $user;
 
-		$log_types = array('LOG_ADMIN', 'LOG_MOD', 'LOG_CRITICAL', 'LOG_USERS');	
+		$log_types = array('LOG_ADMIN', 'LOG_MOD', 'LOG_CRITICAL', 'LOG_USERS');
 
 		$expire_date = time() - ($this->config['prune_logs_days'] * 86400);
 		$log_aray = array();
@@ -61,7 +61,13 @@ class prunelogs extends \phpbb\cron\task\base
 			$user->add_lang('acp/common');
 			$sql = 'DELETE FROM ' . LOG_TABLE . ' WHERE  log_time < ' . $expire_date;
 			$this->db->sql_query($sql);
-			add_log('admin', 'LOG_PRUNE_LOGS', implode(',<br /> ', array_map(function ($v, $k) {global $user; return $user->lang['ACP_' . str_replace('LOG_', '', $k) . '_LOGS'] . ': ' . $v; }, $log_aray, array_keys($log_aray))));
+			add_log('admin', 'LOG_PRUNE_LOGS', implode(',<br /> ',
+			array_map(function ($v, $k)
+			{
+				global $user;
+				return $user->lang['ACP_' . str_replace('LOG_', '', $k) . '_LOGS'] . ': ' . $v;
+			},
+			$log_aray, array_keys($log_aray))));
 		} else
 		{
 			add_log('admin', 'NO_PRUNE_LOGS');
