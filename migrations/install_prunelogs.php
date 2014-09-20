@@ -7,7 +7,7 @@
 *
 */
 
-namespace forumhulp\prunelogs\migration;
+namespace forumhulp\prunelogs\migrations;
 
 class install_prunelogs extends \phpbb\db\migration\migration
 {
