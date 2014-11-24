@@ -22,7 +22,7 @@ class prunelogs extends \phpbb\cron\task\base
 	* @param phpbb_config $config The config
 	* @param phpbb_db_driver $db The db connection
 	*/
-	public function __construct(\phpbb\config\config $config, \phpbb\user $user,\phpbb\db\driver\driver_interface $db, \phpbb\log\log $log)
+	public function __construct(\phpbb\config\config $config, \phpbb\user $user, \phpbb\db\driver\driver_interface $db, \phpbb\log\log $log)
 	{
 		$this->config = $config;
 		$this->user = $user;
