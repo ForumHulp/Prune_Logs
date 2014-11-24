@@ -3,6 +3,7 @@ services:
         class: forumhulp\prunelogs\cron\task\core\prunelogs
         arguments:
             - @config
+            - @user
             - @dbal.conn
             - @log
         calls:

@@ -12,6 +12,7 @@ namespace forumhulp\prunelogs\cron\task\core;
 class prunelogs extends \phpbb\cron\task\base
 {
 	protected $config;
+	protected $user;
 	protected $db;
 	protected $log;
 
@@ -21,9 +22,10 @@ class prunelogs extends \phpbb\cron\task\base
 	* @param phpbb_config $config The config
 	* @param phpbb_db_driver $db The db connection
 	*/
-	public function __construct(\phpbb\config\config $config, \phpbb\db\driver\driver_interface $db, \phpbb\log\log $log)
+	public function __construct(\phpbb\config\config $config, \phpbb\user $user,\phpbb\db\driver\driver_interface $db, \phpbb\log\log $log)
 	{
 		$this->config = $config;
+		$this->user = $user;
 		$this->db = $db;
 		$this->log = $log;
 	}
@@ -35,8 +37,6 @@ class prunelogs extends \phpbb\cron\task\base
 	*/
 	public function run()
 	{
-		global $user;
-
 		$log_types = array('LOG_ADMIN', 'LOG_MOD', 'LOG_CRITICAL', 'LOG_USERS');
 
 		$expire_date = time() - ($this->config['prune_logs_days'] * 86400);
@@ -50,14 +50,13 @@ class prunelogs extends \phpbb\cron\task\base
 
 		if (sizeof($log_aray))
 		{
-			$user->add_lang('acp/common');
+			$this->user->add_lang('acp/common');
 			$sql = 'DELETE FROM ' . LOG_TABLE . ' WHERE  log_time < ' . $expire_date;
 			$this->db->sql_query($sql);
 			add_log('admin', 'LOG_PRUNE_LOGS', implode(',<br /> ',
 			array_map(function ($v, $k)
 			{
-				global $user;
-				return $user->lang['ACP_' . str_replace('LOG_', '', $k) . '_LOGS'] . ': ' . $v;
+				return $this->user->lang['ACP_' . str_replace('LOG_', '', $k) . '_LOGS'] . ': ' . $v;
 			},
 			$log_aray, array_keys($log_aray))));
 		} else

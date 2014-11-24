@@ -13,7 +13,7 @@ class install_prunelogs extends \phpbb\db\migration\migration
 {
 	public function effectively_installed()
 	{
-		return isset($this->config['prune_logs_version']) && version_compare($this->config['prune_logs_version'], '3.1.0.RC4', '>=');
+		return isset($this->config['prune_logs_gc']);
 	}
 
 	static public function depends_on()
@@ -27,7 +27,6 @@ class install_prunelogs extends \phpbb\db\migration\migration
 			array('config.add', array('prune_logs_gc', 86400)),
 			array('config.add', array('prune_logs_last_gc', '0', 1)),
 			array('config.add', array('prune_logs_days', 30)),
-			array('config.add', array('prune_logs_version', '3.1.0.RC4'))
 		);
 	}
 }
