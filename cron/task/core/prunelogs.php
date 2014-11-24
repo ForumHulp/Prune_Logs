@@ -53,15 +53,16 @@ class prunelogs extends \phpbb\cron\task\base
 			$this->user->add_lang('acp/common');
 			$sql = 'DELETE FROM ' . LOG_TABLE . ' WHERE  log_time < ' . $expire_date;
 			$this->db->sql_query($sql);
-			add_log('admin', 'LOG_PRUNE_LOGS', implode(',<br /> ',
-			array_map(function ($v, $k)
+			
+			$loglist = array_map(function ($v, $k)
 			{
 				return $this->user->lang['ACP_' . str_replace('LOG_', '', $k) . '_LOGS'] . ': ' . $v;
 			},
-			$log_aray, array_keys($log_aray))));
+			$log_aray, array_keys($log_aray));
+			$this->log->add('admin', $this->user->data['user_id'], $this->user->data['session_ip'], 'LOG_PRUNE_LOGS', false, array(implode(',<br />', $loglist)));
 		} else
 		{
-			add_log('admin', 'NO_PRUNE_LOGS');
+			$this->log->add('admin', $this->user->data['user_id'], $this->user->data['session_ip'], 'NO_PRUNE_LOGS', false, array());
 		}
 		$this->config->set('prune_logs_last_gc', time());
 	}

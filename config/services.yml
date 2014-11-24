@@ -1,5 +1,5 @@
 services:
-    cron.task.core.prunelogs:
+    forumhulp.prunelogs.cron.task.core.prunelogs:
         class: forumhulp\prunelogs\cron\task\core\prunelogs
         arguments:
             - @config
