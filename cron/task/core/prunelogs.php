@@ -53,7 +53,7 @@ class prunelogs extends \phpbb\cron\task\base
 			$this->user->add_lang('acp/common');
 			$sql = 'DELETE FROM ' . LOG_TABLE . ' WHERE  log_time < ' . $expire_date;
 			$this->db->sql_query($sql);
-			
+
 			$loglist = array_map(function ($v, $k)
 			{
 				return $this->user->lang['ACP_' . str_replace('LOG_', '', $k) . '_LOGS'] . ': ' . $v;
