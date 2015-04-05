@@ -43,5 +43,5 @@ $lang = array_merge($lang, array(
 	'PRUNE_LOGS_DAYS_EXPLAIN'	=> 'Nombre de jours avant que la tache du Cron supprime automatiquement les journaux. Mettre sur « 0 » pour désactiver cette fonctionnalité.',
 
 	'LOG_PRUNE_LOGS'			=> '<strong>Journaux effacés</strong><br />%s',
-	'NO_PRUNE_LOGS'				=> 'Aucun journal effacé',
+	'NO_PRUNE_LOGS'				=> 'Aucun journal supprimé',
 ));
