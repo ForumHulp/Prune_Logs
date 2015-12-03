@@ -18,10 +18,10 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-	'PRUNE_LOGS_DAYS' 			=> 'Prune Logs',
-	'PRUNE_LOGS_DAYS_EXPLAIN'	=> 'Days before the cron will prune the logs. Setting the value to 0 disables this behaviour.',
+	'PRUNE_LOGS_DAYS' 			=> 'Purgar registros',
+	'PRUNE_LOGS_DAYS_EXPLAIN'	=> 'Días antes que el cron purgará los registros. Establecer el valor 0 para deshabilitar esto.',
 
-	'LOG_PRUNE_LOGS'			=> '<strong>Logs pruned</strong><br />» %s',
-	'NO_PRUNE_LOGS'				=> '<strong>Prune Logs</strong><br />» No logs deleted',
+	'LOG_PRUNE_LOGS'			=> '<strong>Registros purgados</strong><br />%s',
+	'NO_PRUNE_LOGS'				=> '<strong>Registros purgados</strong><br />» No hay registros borrados',
 	'PRUNE_LOGS_NOTICE'			=> '<div class="phpinfo"><p class="entry">Config settings are in %1$s » %2$s » %3$s.</p></div>',
 ));

@@ -21,6 +21,7 @@ $lang = array_merge($lang, array(
 	'PRUNE_LOGS_DAYS' 			=> 'Automatisches Löschen von Protokollen',
 	'PRUNE_LOGS_DAYS_EXPLAIN'	=> 'Die Anzahl der Tage seit dem Protokoll-Eintrag. Protokoll-Einträge bleiben dauerhaft erhalten, wenn 0 als Wert eingestellt wird.',
 
-	'LOG_PRUNE_LOGS'			=> '<strong>Protokoll-Einträge gelöscht</strong><br />%s',
-	'NO_PRUNE_LOGS'				=> 'Keine Protokoll-Einträge gelöscht.',
+	'LOG_PRUNE_LOGS'			=> '<strong>Protokoll-Einträge gelöscht</strong><br />» %s',
+	'NO_PRUNE_LOGS'				=> '<strong>Protokoll-Einträge</strong><br />» Keine Protokoll-Einträge gelöscht.',
+	'PRUNE_LOGS_NOTICE'			=> '<div class="phpinfo"><p class="entry">Config settings are in %1$s » %2$s » %3$s.</p></div>',
 ));
