@@ -56,7 +56,8 @@ class prunelogs extends \phpbb\cron\task\base
 
 			$loglist = array_map(function ($v, $k)
 			{
-				return $this->user->lang['ACP_' . str_replace('LOG_', '', $k) . '_LOGS'] . ': ' . $v;
+				global $user;
+				return $user->lang['ACP_' . str_replace('LOG_', '', $k) . '_LOGS'] . ': ' . $v;
 			},
 			$log_aray, array_keys($log_aray));
 			$this->log->add('admin', $this->user->data['user_id'], $this->user->data['session_ip'], 'LOG_PRUNE_LOGS', false, array(implode(',<br />', $loglist)));
