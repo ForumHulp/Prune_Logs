@@ -23,5 +23,5 @@ $lang = array_merge($lang, array(
 
 	'LOG_PRUNE_LOGS'			=> '<strong>Registros purgados</strong><br />%s',
 	'NO_PRUNE_LOGS'				=> '<strong>Registros purgados</strong><br />» No hay registros borrados',
-	'PRUNE_LOGS_NOTICE'			=> '<div class="phpinfo"><p class="entry">Config settings are in %1$s » %2$s » %3$s.</p></div>',
+	'PRUNE_LOGS_NOTICE'			=> '<div class="phpinfo"><p class="entry">Los ajustes de configuración están en %1$s » %2$s » %3$s.</p></div>',
 ));
