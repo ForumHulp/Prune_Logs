@@ -13,7 +13,7 @@ namespace forumhulp\prunelogs\event;
 * @ignore
 */
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-
+use phpbb\controller\helper;
 /**
 * Event listener
 */
@@ -27,7 +27,7 @@ class listener implements EventSubscriberInterface
 	*
 	* @param \phpbb\controller\helper    $helper        Controller helper object
 	*/
-	public function __construct(\phpbb\controller\helper $helper)
+	public function __construct(helper $helper)
 	{
 		$this->helper = $helper;
 	}

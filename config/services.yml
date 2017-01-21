@@ -2,10 +2,10 @@ services:
     forumhulp.cron.prune_logs:
         class: forumhulp\prunelogs\cron\task\core\prunelogs
         arguments:
-            - @config
-            - @user
-            - @dbal.conn
-            - @log
+            - '@config'
+            - '@user'
+            - '@dbal.conn'
+            - '@log'
         calls:
             - [set_name, [forumhulp.cron.prune_logs]]
         tags:
@@ -13,6 +13,6 @@ services:
     forumhulp.prunelogs.listener:
         class: forumhulp\prunelogs\event\listener
         arguments:
-            - @controller.helper
+            - '@controller.helper'
         tags:
             - { name: event.listener }
