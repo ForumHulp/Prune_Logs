@@ -9,11 +9,9 @@
 
 namespace forumhulp\prunelogs\event;
 
-/**
-* @ignore
-*/
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use phpbb\controller\helper;
+
 /**
 * Event listener
 */
